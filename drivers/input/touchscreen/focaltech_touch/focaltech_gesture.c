@@ -38,10 +38,10 @@
 * Private constant and macro definitions using #define
 *****************************************************************************/
 #define KEY_GESTURE_U                           KEY_U
-#define KEY_GESTURE_UP                          260
-#define KEY_GESTURE_DOWN                        261
-#define KEY_GESTURE_LEFT                        262
-#define KEY_GESTURE_RIGHT                       263
+#define KEY_GESTURE_UP                          KEY_UP
+#define KEY_GESTURE_DOWN                        KEY_DOWN
+#define KEY_GESTURE_LEFT                        KEY_LEFT
+#define KEY_GESTURE_RIGHT                       KEY_RIGHT
 #define KEY_GESTURE_O                           KEY_O
 #define KEY_GESTURE_E                           KEY_E
 #define KEY_GESTURE_M                           KEY_M
@@ -78,13 +78,6 @@
 #define Z_SWITCH                                0x20
 #define V_SWITCH                                0x40
 //<ASUS-BSP tyree_liu 20180109> add gesture function  ------
-
-#define LEFT_SWITCH				0x03
-#define RIGHT_SWITCH				0x05
-#define DOWN_SWITCH				0x06
-#define O_SWITCH				0x07
-#define M_SWITCH				0x09
-#define L_SWITCH				0x11
 
 /*****************************************************************************
 * Private enumerations, structures and unions using typedef
@@ -717,60 +710,6 @@ static void fts_gesture_report(struct input_dev *input_dev, int gesture_id)
 					input_sync(input_dev);
 				}
 				break;
-                  case KEY_GESTURE_O:
-                                if (gesture_detect& O_SWITCH)
-                                {
-                                        input_report_key(input_dev, gesture, 1);
-                                        input_sync(input_dev);
-                                        input_report_key(input_dev, gesture, 0);
-                                        input_sync(input_dev);
-                                }
-                                break;
-                  case KEY_GESTURE_M: 
-                                if (gesture_detect& M_SWITCH)
-                                {
-                                        input_report_key(input_dev, gesture, 1);
-                                        input_sync(input_dev);
-                                        input_report_key(input_dev, gesture, 0);
-                                        input_sync(input_dev);
-                                }
-                                break;
-                  case KEY_GESTURE_L:
-                                if (gesture_detect& L_SWITCH)
-                                {
-                                        input_report_key(input_dev, gesture, 1);
-                                        input_sync(input_dev);
-                                        input_report_key(input_dev, gesture, 0);
-                                        input_sync(input_dev);
-                                }
-                                break;
-                  case KEY_GESTURE_LEFT:
-                                if (gesture_detect& LEFT_SWITCH)
-                                {
-                                        input_report_key(input_dev, gesture, 1);
-                                        input_sync(input_dev);
-                                        input_report_key(input_dev, gesture, 0);
-                                        input_sync(input_dev);
-                                }
-                                break;
-                  case KEY_GESTURE_RIGHT:
-                                if (gesture_detect& RIGHT_SWITCH)
-                                {
-                                        input_report_key(input_dev, gesture, 1);
-                                        input_sync(input_dev);
-                                        input_report_key(input_dev, gesture, 0);
-                                        input_sync(input_dev);
-                                }
-                                break;
-                  case KEY_GESTURE_DOWN: 
-                                if (gesture_detect& DOWN_SWITCH)
-                                {
-                                        input_report_key(input_dev, gesture, 1);
-                                        input_sync(input_dev);
-                                        input_report_key(input_dev, gesture, 0);
-                                        input_sync(input_dev);
-                                }
-                                break;
 		  default:
 				FTS_DEBUG("unknown gesture!");
 			}
