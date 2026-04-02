@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Compile script for Cuh kernel
+# Compile script for depressive kernel
 # Copyright (C) 2020-2023 Adithya R.
 # Copyright (C) 2023-2026 Tejas Singh.
 # Copyright (C) 2026 holzip.
@@ -69,7 +69,7 @@ make -j$(nproc --all) O=out ARCH=arm64 \
 
 if [ -f "out/arch/arm64/boot/Image.gz-dtb" ]; then
     echo -e "\nKernel compiled successfully! Zipping up...\n"
-    
+
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3/
     
     cd AnyKernel3
