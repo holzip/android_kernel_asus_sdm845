@@ -42,6 +42,8 @@ echo "Cloning failed! Aborting..."
 exit 1
 fi
 fi
+# KernelSU
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 
 if [[ $1 = "-r" || $1 = "--regen" ]]; then
 make O=out ARCH=arm64 $DEFCONFIG savedefconfig
